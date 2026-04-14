@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "autofarmcraftmod:radioactive_residue"
+    }
+  ],
+  "result": {
+    "id": "autofarmcraftmod:moonleaf_seeds",
+    "count": 1
+  }
+}

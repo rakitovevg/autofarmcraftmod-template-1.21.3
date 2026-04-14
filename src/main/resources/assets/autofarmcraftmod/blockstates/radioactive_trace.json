@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "autofarmcraftmod:block/radioactive_trace"
+    }
+  }
+}

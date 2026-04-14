@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "age=0": { "model": "autofarmcraftmod:block/moonleaf_stage0" },
+    "age=1": { "model": "autofarmcraftmod:block/moonleaf_stage1" },
+    "age=2": { "model": "autofarmcraftmod:block/moonleaf_stage2" },
+    "age=3": { "model": "autofarmcraftmod:block/moonleaf_stage3" },
+    "age=4": { "model": "autofarmcraftmod:block/moonleaf_stage4" },
+    "age=5": { "model": "autofarmcraftmod:block/moonleaf_stage5" },
+    "age=6": { "model": "autofarmcraftmod:block/moonleaf_stage6" },
+    "age=7": { "model": "autofarmcraftmod:block/moonleaf_stage7" }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " RI",
+    " SR",
+    "I  "
+  ],
+  "key": {
+    "R": {
+      "item": "autofarmcraftmod:radioactive_residue"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "autofarmcraftmod:radioactive_pistol",
+    "count": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "key.categories.autofarmcraft": "Auto Farm Craft",
+  "key.autofarmcraft.toggle_harvest": "Toggle Auto Harvest",
+  "key.autofarmcraft.toggle_plant": "Toggle Auto Plant",
+  "key.autofarmcraft.toggle_craft": "Toggle Auto Craft",
+  "item.autofarmcraftmod.radioactive_pistol": "Radioactive Pistol",
+  "item.autofarmcraftmod.radioactive_residue": "Radioactive Residue",
+  "item.autofarmcraftmod.moonleaf": "Moonleaf",
+  "item.autofarmcraftmod.moonleaf_seeds": "Moonleaf Seeds",
+  "block.autofarmcraftmod.radioactive_trace": "Radioactive Trace",
+  "block.autofarmcraftmod.moonleaf_crop": "Moonleaf Crop",
+  "effect.autofarmcraftmod.radiation": "Radiation",
+  "entity.autofarmcraftmod.radioactive_mob": "Radioactive"
+}
