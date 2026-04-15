@@ -2,21 +2,24 @@ package com.rakitov.examplemod.registry;
 
 import com.rakitov.examplemod.AutoFarmCraftMod;
 import com.rakitov.examplemod.item.RadioactivePistolItem;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AutoFarmCraftMod.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, AutoFarmCraftMod.MODID);
 
-    public static final DeferredItem<Item> RADIOACTIVE_RESIDUE = ITEMS.registerSimpleItem("radioactive_residue", new Item.Properties());
-    public static final DeferredItem<RadioactivePistolItem> RADIOACTIVE_PISTOL = ITEMS.registerItem("radioactive_pistol", RadioactivePistolItem::new);
-    public static final DeferredItem<Item> MOONLEAF = ITEMS.registerSimpleItem("moonleaf", new Item.Properties());
-    public static final DeferredItem<BlockItem> MOONLEAF_SEEDS = ITEMS.registerSimpleBlockItem("moonleaf_seeds", ModBlocks.MOONLEAF_CROP);
+    public static final RegistryObject<Item> RADIOACTIVE_RESIDUE = ITEMS.register("radioactive_residue", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<RadioactivePistolItem> RADIOACTIVE_PISTOL = ITEMS.register("radioactive_pistol", () -> new RadioactivePistolItem(new Item.Properties()));
+    public static final RegistryObject<Item> MOONLEAF = ITEMS.register("moonleaf", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<BlockItem> MOONLEAF_SEEDS = ITEMS.register("moonleaf_seeds",
+            () -> new BlockItem(ModBlocks.MOONLEAF_CROP.get(), new Item.Properties().useItemDescriptionPrefix()));
 
-    public static final DeferredItem<BlockItem> RADIOACTIVE_TRACE_ITEM = ITEMS.registerSimpleBlockItem(ModBlocks.RADIOACTIVE_TRACE);
+    public static final RegistryObject<BlockItem> RADIOACTIVE_TRACE_ITEM = ITEMS.register("radioactive_trace",
+            () -> new BlockItem(ModBlocks.RADIOACTIVE_TRACE.get(), new Item.Properties().useItemDescriptionPrefix()));
 
     private ModItems() {
     }

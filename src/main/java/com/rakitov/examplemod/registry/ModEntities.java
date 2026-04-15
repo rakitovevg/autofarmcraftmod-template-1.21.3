@@ -2,25 +2,26 @@ package com.rakitov.examplemod.registry;
 
 import com.rakitov.examplemod.AutoFarmCraftMod;
 import com.rakitov.examplemod.entity.RadioactiveMobEntity;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class ModEntities {
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, AutoFarmCraftMod.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, AutoFarmCraftMod.MODID);
 
-    public static final DeferredHolder<EntityType<?>, EntityType<RadioactiveMobEntity>> RADIOACTIVE_MOB = ENTITY_TYPES.register(
+    public static final RegistryObject<EntityType<RadioactiveMobEntity>> RADIOACTIVE_MOB = ENTITY_TYPES.register(
             "radioactive_mob",
-            key -> EntityType.Builder.of(RadioactiveMobEntity::new, MobCategory.MONSTER)
+            () -> EntityType.Builder.of(RadioactiveMobEntity::new, MobCategory.MONSTER)
                     .sized(0.7F, 1.95F)
                     .clientTrackingRange(8)
                     .updateInterval(3)
-                    .build(ResourceKey.create(Registries.ENTITY_TYPE, key))
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(AutoFarmCraftMod.MODID, "radioactive_mob")))
     );
 
     private ModEntities() {

@@ -26,7 +26,7 @@ public class RadioactiveTraceBlock extends Block {
         }
 
         livingEntity.addEffect(new MobEffectInstance(
-                ModEffects.RADIATION,
+                ModEffects.radiationHolder(),
                 AutoFarmConfig.RADIATION_DURATION_TICKS,
                 0,
                 false,

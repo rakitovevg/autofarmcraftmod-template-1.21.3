@@ -6,14 +6,12 @@ import com.rakitov.examplemod.handler.AutoPlantHandler;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.lwjgl.glfw.GLFW;
 
-@EventBusSubscriber(modid = AutoFarmCraftMod.MODID, value = Dist.CLIENT)
 public class AutoFarmCraftModClient {
     private static AutoCraftHandler craftHandler;
     private static AutoHarvestHandler harvestHandler;
@@ -49,6 +47,7 @@ public class AutoFarmCraftModClient {
      * Инициализация клиентской части мода
      */
     public static void init() {
+        MinecraftForge.EVENT_BUS.register(AutoFarmCraftModClient.class);
         craftHandler = new AutoCraftHandler();
         harvestHandler = new AutoHarvestHandler();
         plantHandler = new AutoPlantHandler();
@@ -60,7 +59,8 @@ public class AutoFarmCraftModClient {
      * Тик клиента каждый кадр
      */
     @SubscribeEvent
-    public static void onClientTick(ClientTickEvent.Post event) {
+    public static void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
         Minecraft mc = Minecraft.getInstance();
 
         if (mc.player == null || mc.level == null || mc.screen != null) {

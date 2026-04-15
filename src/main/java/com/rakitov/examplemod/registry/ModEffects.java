@@ -2,16 +2,21 @@ package com.rakitov.examplemod.registry;
 
 import com.rakitov.examplemod.AutoFarmCraftMod;
 import com.rakitov.examplemod.effect.RadiationMobEffect;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class ModEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, AutoFarmCraftMod.MODID);
 
-    public static final DeferredHolder<MobEffect, RadiationMobEffect> RADIATION = EFFECTS.register("radiation", RadiationMobEffect::new);
+    public static final RegistryObject<RadiationMobEffect> RADIATION = EFFECTS.register("radiation", RadiationMobEffect::new);
+
+    public static Holder<MobEffect> radiationHolder() {
+        return Holder.direct(RADIATION.get());
+    }
 
     private ModEffects() {
     }

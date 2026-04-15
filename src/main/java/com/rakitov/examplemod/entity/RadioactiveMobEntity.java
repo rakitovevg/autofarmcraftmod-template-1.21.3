@@ -31,7 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class RadioactiveMobEntity extends Monster {
     private int trailTickCounter = 0;
 
-    public RadioactiveMobEntity(EntityType<? extends Monster> entityType, Level level) {
+    public RadioactiveMobEntity(EntityType<? extends RadioactiveMobEntity> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -87,7 +87,7 @@ public class RadioactiveMobEntity extends Monster {
     public boolean doHurtTarget(ServerLevel level, net.minecraft.world.entity.Entity target) {
         boolean success = super.doHurtTarget(level, target);
         if (success && target instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(ModEffects.RADIATION, AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
+            livingEntity.addEffect(new MobEffectInstance(ModEffects.radiationHolder(), AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
         }
         return success;
     }
@@ -99,7 +99,7 @@ public class RadioactiveMobEntity extends Monster {
         }
 
         HitscanUtil.damageTarget(this, hit, AutoFarmConfig.RADIOACTIVE_MOB_RANGED_DAMAGE);
-        hit.addEffect(new MobEffectInstance(ModEffects.RADIATION, AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
+        hit.addEffect(new MobEffectInstance(ModEffects.radiationHolder(), AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
     }
 
     private void placeTrail() {

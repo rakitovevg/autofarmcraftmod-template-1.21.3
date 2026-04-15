@@ -29,7 +29,7 @@ public class RadioactivePistolItem extends Item {
         LivingEntity target = HitscanUtil.findTarget(player, AutoFarmConfig.RADIOACTIVE_PISTOL_RANGE, this::isValidTarget);
         if (target != null) {
             HitscanUtil.damageTarget(player, target, AutoFarmConfig.RADIOACTIVE_PISTOL_DAMAGE);
-            target.addEffect(new MobEffectInstance(ModEffects.RADIATION, AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
+            target.addEffect(new MobEffectInstance(ModEffects.radiationHolder(), AutoFarmConfig.RADIATION_DURATION_TICKS, 0));
         }
 
         player.getCooldowns().addCooldown(stack, AutoFarmConfig.RADIOACTIVE_PISTOL_COOLDOWN);

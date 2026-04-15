@@ -4,10 +4,10 @@ import com.rakitov.examplemod.registry.ModBlocks;
 import com.rakitov.examplemod.registry.ModEffects;
 import com.rakitov.examplemod.registry.ModEntities;
 import com.rakitov.examplemod.registry.ModItems;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
 
 @Mod(AutoFarmCraftMod.MODID)
 public class AutoFarmCraftMod {
@@ -22,6 +22,7 @@ public class AutoFarmCraftMod {
         ModItems.register(modEventBus);
         ModEffects.register(modEventBus);
         ModEntities.register(modEventBus);
+        modEventBus.addListener(AutoFarmCraftModClient::registerKeys);
         modEventBus.addListener(this::clientSetup);
     }
 
